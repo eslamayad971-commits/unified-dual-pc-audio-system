@@ -24,33 +24,30 @@ I configured the desktop as a central audio mixer and used VBAN to transmit lapt
 
 ## System Architecture
 
-```text
-              LAPTOP (Windows 11)
-                Applications
-                     |
-          Voicemeeter Virtual Input
-                     |
-             B1 Audio Bus
-                     |
-               VBAN Sender
-                     |
-               Wi-Fi 6 LAN
-                     |
-               VBAN Receiver
-                     |
-              DESKTOP PC (Windows 11)
-                     |
-          Voicemeeter Hardware Input 1
-                     |                  Desktop Applications
-                     |                          |
-                     |                 Voicemeeter Virtual Input
-                     |                          |
-                     +-----------+--------------+
-                                 |
-                           Mixer Output A1
-                                 |
-                       HyperX Cloud III USB
+
+```mermaid
+flowchart TD
+    A["Laptop — Windows 11"] --> B["Voicemeeter Banana"]
+    B --> C["B1 Audio Bus"]
+    C --> D["VBAN Sender"]
+    D --> E["Wi-Fi 6 Network"]
+    E --> F["VBAN Receiver"]
+    F --> G["Desktop — Hardware Input 1"]
+
+    H["Desktop Applications"] --> I["Voicemeeter Virtual Input"]
+
+    G --> J["Desktop Audio Mixer"]
+    I --> J
+    J --> K["A1 Hardware Output"]
+    K --> L["HyperX Cloud III USB Headset"]
+
+    style A fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style E fill:#fef3c7,stroke:#d97706,color:#78350f
+    style H fill:#dbeafe,stroke:#2563eb,color:#1e3a8a
+    style J fill:#ccfbf1,stroke:#0d9488,color:#134e4a
+    style L fill:#dcfce7,stroke:#16a34a,color:#14532d
 ```
+
 
 ## Hardware and Software
 
